@@ -1,7 +1,5 @@
-export function App() {
-  return (
-    <>
+import "./styles/index.scss";
 
-    </>
-  )
-}
+export const App = () => {
+  return <></>;
+};
