@@ -1,6 +1,7 @@
 .footer {
-  padding: 3rem 0;
+  padding: clamp(2.1rem, 3vw, 3rem);
   background-color: var(--black);
+  width: 100%;
 
   p {
     text-align: center;

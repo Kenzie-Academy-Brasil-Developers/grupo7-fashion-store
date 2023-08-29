@@ -8,7 +8,7 @@
   }
 
   &.two {
-    font-size: clamp(2.75rem, 4vw, 3.75rem);
+    font-size: clamp(2.1rem, 4vw, 3.75rem);
   }
 
   &.three {
@@ -60,7 +60,13 @@
 .another__paragraph {
   font-family: var(--font-secondary);
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+
+  &.anchorRegister {
+    font-weight: 500;
+    font-size: 1.125rem;
+    color: var(--black);
+  }
 }
 
 .placeholder {
@@ -73,6 +79,6 @@
 .footerText {
   font-family: var(--font-secondary);
   font-weight: 700;
-  font-size: 1.1875rem;
+  font-size: clamp(0.65rem, 4vw, 1.1875rem);
   color: var(--white);
 }

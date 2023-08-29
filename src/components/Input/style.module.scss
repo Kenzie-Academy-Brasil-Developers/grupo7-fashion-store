@@ -1,0 +1,16 @@
+.inputBox {
+  input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 18px;
+    height: 4rem;
+    border-radius: 4px;
+    background-color: var(--gray);
+    border: 1px solid var(--gray);
+  }
+}
