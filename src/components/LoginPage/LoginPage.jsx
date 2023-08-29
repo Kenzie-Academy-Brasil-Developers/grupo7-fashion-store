@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 import logo from "../../assets/login.png";
+import styles from "./style.module.scss";
 
 export const LoginPage = () => {
   const {
@@ -22,27 +23,35 @@ export const LoginPage = () => {
   return (
     <DefaultTemplate>
       <section>
-        <img src={logo} alt="logo login" />
-        <form onSubmit={handleSubmit(submitLogin)}>
-          <h2>ENTRAR</h2>
-          <Input
-            type="text"
-            placeholder="E-MAIL"
-            {...register("email")}
-            error={errors.email}
-          />
-          <Input
-            type="password"
-            placeholder="SENHA"
-            {...register("password")}
-            error={errors.password}
-          />
+        <div className="container">
+          <div className={styles.login}>
+            <div>
+              <img src={logo} alt="logo login" />
+            </div>
+            <form onSubmit={handleSubmit(submitLogin)} className={styles.form}>
+              <h2 className="title two">ENTRAR</h2>
+              <Input
+                type="text"
+                placeholder="E-MAIL"
+                {...register("email")}
+                error={errors.email}
+              />
+              <Input
+                type="password"
+                placeholder="SENHA"
+                {...register("password")}
+                error={errors.password}
+              />
 
-          <div>
-            <button>ACESSAR</button>
-            <Link to="/register">CADASTRE-SE</Link>
+              <div className={styles.buttons}>
+                <button className="btn__black login">ACESSAR</button>
+                <Link to="/register" className="btn__white">
+                  CADASTRE-SE
+                </Link>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </section>
     </DefaultTemplate>
   );
