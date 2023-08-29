@@ -8,7 +8,7 @@
   }
 
   &.two {
-    font-size: clamp(2.1rem, 4vw, 3.75rem);
+    font-size: clamp(1.75rem, 4vw, 2.375rem);
   }
 
   &.three {
@@ -60,11 +60,11 @@
 .another__paragraph {
   font-family: var(--font-secondary);
   font-weight: 400;
-  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-size: clamp(0.7rem, 4vw, 15px);
 
   &.anchorRegister {
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 0.875rem;
     color: var(--black);
   }
 }
@@ -79,6 +79,6 @@
 .footerText {
   font-family: var(--font-secondary);
   font-weight: 700;
-  font-size: clamp(0.65rem, 4vw, 1.1875rem);
+  font-size: clamp(0.5625rem, 4vw, 0.75rem);
   color: var(--white);
 }

@@ -30,7 +30,10 @@ export const RegisterPage = () => {
               <img src={Register} alt="Register image" />
             </div>
             <div>
-              <form onSubmit={handleSubmit(submitRegister)}>
+              <form
+                onSubmit={handleSubmit(submitRegister)}
+                className={styles.form}
+              >
                 <div className={styles.arrow}>
                   <AiOutlineArrowLeft />
                   <Link
