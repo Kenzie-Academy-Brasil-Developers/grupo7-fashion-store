@@ -4,37 +4,37 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-export const UserContext = createContext({})
+export const UserContext = createContext({});
 
-export const UserProvider = ({children}) => {
+export const UserProvider = ({ children }) => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(false);
 
-    const navigate = useNavigate()
-    const [user, setUser] = useState(false)
-
-    const submitLogin = async (formData) => {
-        try {
-          const response = await api.post("/login", formData);
-          setUser(true);
-          localStorage.setItem("@TOKEN", response.data.accessToken);
-          navigate("/product");
-        } catch (error) {
-            console.log(error)
-        }
-      }
-
-    const submitRegister = async (formData) => {
-        try {
-            const response = await api.post("/users", formData)
-            alert("Usuario criado com sucesso")
-            navigate("/login")
-        } catch (error) {
-            console.log(error)
-        }
+  const submitLogin = async (formData) => {
+    try {
+      const response = await api.post("/login", formData);
+      setUser(true);
+      localStorage.setItem("@TOKEN", response.data.accessToken);
+      toast.success("Login realizado com sucesso!");
+      navigate("/product");
+    } catch {
+      toast.error("Não foi possível realizar o login");
     }
+  };
 
-    return (
-        <UserContext.Provider value={{submitRegister, submitLogin}}>
-            {children}
-        </UserContext.Provider>
-    )
-}
+  const submitRegister = async (formData) => {
+    try {
+      const response = await api.post("/users", formData);
+      toast.success("Conta criada com sucesso");
+      navigate("/login");
+    } catch {
+      toast.error("Ops! Algo deu errado");
+    }
+  };
+
+  return (
+    <UserContext.Provider value={{ submitRegister, submitLogin }}>
+      {children}
+    </UserContext.Provider>
+  );
+};

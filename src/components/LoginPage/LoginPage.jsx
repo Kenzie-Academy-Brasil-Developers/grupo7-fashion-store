@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { DefaultTemplate } from "../DefaultTemplate";
 import { Input } from "../Input/input";
 import { useForm } from "react-hook-form";
-import { registerSchema } from "../RegisterPage/formSchemaRegister";
 import { loginSchema } from "./formSchemaLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContext } from "react";
