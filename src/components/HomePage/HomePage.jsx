@@ -1,17 +1,16 @@
 import FotoBanner from "../../assets/FotoBanner.png";
 import styles from "./styles.module.scss";
-import Logo from "../../assets/Logo.svg";
-import { BsCart3 } from "react-icons/bs";
-import { BiUserCircle } from "react-icons/bi";
+
 import { Footer } from "../Footer";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../api/axios";
 import { Link, Navigate } from "react-router-dom";
 import { ProductsContext } from "../../providers/ProductsContext";
+import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 
 export const HomePage = () => {
-  const { products, setProducts, setIsVisible } = useContext(ProductsContext);
+  const { products, setProducts } = useContext(ProductsContext);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -28,19 +27,7 @@ export const HomePage = () => {
   console.log(products);
   return (
     <>
-      <header>
-        <div className={`container ${styles.flexBox}`}>
-          <img src={Logo} alt="Logo Fashion Store" />
-          <div className={styles.icons}>
-            <Link className={styles.user} to="/login">
-              <BiUserCircle size={30} />
-            </Link>
-            <button onClick={()=>setIsVisible(true)}>
-              <BsCart3 size={30} />
-            </button>
-          </div>
-        </div>
-      </header>
+      <HeaderHomePage />
       <div className={`container ${styles.bannerBox}`}>
         <img src={FotoBanner} alt="Foto com 3 mulheres sorrindo" />
         <div className={styles.titleBox}>

@@ -8,10 +8,7 @@
   flex-direction: column;
 }
 
-.flexBox {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .logoTitle {
   text-align: center;
@@ -23,14 +20,7 @@
   gap: 25px;
 }
 
-.icons {
-  display: flex;
-  gap: 30px;
-}
 
-.user {
-  color: var(--black);
-}
 
 @media (min-width: 700px) {
   .logoTitle {

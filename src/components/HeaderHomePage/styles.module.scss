@@ -1,0 +1,13 @@
+.flexBox {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icons {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .user {
+    color: var(--black);
+  }
