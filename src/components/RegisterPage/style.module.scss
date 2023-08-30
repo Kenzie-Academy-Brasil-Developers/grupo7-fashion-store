@@ -3,20 +3,9 @@
   flex-direction: column;
   gap: 40px;
 
-  .form {
-    width: 100%;
-    max-width: 800px;
-  }
-
   h2 {
     margin-top: 12px;
     margin-bottom: 15px;
-  }
-
-  .arrow {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
   }
 
   @media (min-width: 910px) {
@@ -38,4 +27,10 @@
     align-items: end;
     justify-content: end;
   }
+}
+
+.arrow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
