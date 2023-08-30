@@ -4,7 +4,8 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { CrudProductContext } from "../../../providers/HandleProductContext";
 
 export const CrudProductList = ({ product }) => {
-  const { deleteProductRequest } = useContext(CrudProductContext);
+  const { deleteProductRequest, setEditingProduct } =
+    useContext(CrudProductContext);
 
   return (
     <li>
@@ -15,7 +16,7 @@ export const CrudProductList = ({ product }) => {
         <h2>{product.name}</h2>
         <span>{product.price}</span>
         <div>
-          <button>
+          <button onClick={() => setEditingProduct(product)}>
             <MdOutlineModeEdit size={22} />
           </button>
           <button onClick={() => deleteProductRequest(product.id)}>

@@ -3,9 +3,10 @@ import { CrudProductCard } from "../CrudProductCard";
 import { DefaultTemplate } from "../DefaultTemplate";
 import { CrudProductContext } from "../../providers/HandleProductContext";
 import { NewProductModal } from "../NewProductModal/NewProductModal";
+import { EditProductModal } from "../EditProductModal/EditProductModal";
 
 export const HandleProducts = () => {
-  const { createNewProductModal, setCreateNewProductModal } =
+  const { createNewProductModal, setCreateNewProductModal, editingProduct } =
     useContext(CrudProductContext);
 
   return (
@@ -25,6 +26,7 @@ export const HandleProducts = () => {
           </button>
         </div>
         {createNewProductModal ? <NewProductModal /> : null}
+        {editingProduct ? <EditProductModal /> : null}
         <CrudProductCard />
       </DefaultTemplate>
     </section>

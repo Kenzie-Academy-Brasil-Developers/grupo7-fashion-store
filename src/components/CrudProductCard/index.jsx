@@ -5,7 +5,6 @@ import { CrudProductList } from "./CrudProductList";
 export const CrudProductCard = () => {
   const { crudProductList } = useContext(CrudProductContext);
 
-  console.log(crudProductList);
   return (
     <ul>
       {crudProductList.map((product) => (
