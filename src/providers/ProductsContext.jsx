@@ -17,8 +17,6 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
-  console.log(cartList);
-
   return (
     <ProductsContext.Provider
       value={{

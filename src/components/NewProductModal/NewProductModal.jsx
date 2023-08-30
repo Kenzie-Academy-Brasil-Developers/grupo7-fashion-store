@@ -5,6 +5,8 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { NewProductSchema } from "./NewProductSchema";
+import { useContext } from "react";
+import { CrudProductContext } from "../../providers/HandleProductContext";
 
 export const NewProductModal = () => {
   const {
@@ -15,14 +17,23 @@ export const NewProductModal = () => {
     resolver: zodResolver(NewProductSchema),
   });
 
-  const submitNewProduct = (formData) => {};
+  const { setCreateNewProductModal, createProductRequest } =
+    useContext(CrudProductContext);
+
+  const submitNewProduct = (formData) => {
+    createProductRequest(formData);
+  };
 
   return (
     <div>
       <div>
         <div>
           <h3>NOVO PRODUTO</h3>
-          <button title="fechar" aria-label="close">
+          <button
+            onClick={() => setCreateNewProductModal(false)}
+            title="fechar"
+            aria-label="close"
+          >
             <AiOutlineClose size={17} />
           </button>
         </div>
