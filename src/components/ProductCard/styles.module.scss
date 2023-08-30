@@ -1,0 +1,62 @@
+.cartBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.875rem;
+  .cartButton {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-color: var(--black);
+  }
+
+  .cartButton:hover{
+    transform: scale(1.1);
+  }
+  svg {
+    color: var(--white);
+    background-color: var(--black);
+  }
+  .buttonMore {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-left: 1.5625rem;
+  }
+
+  .buttonMore:hover {
+    transform: scale(1.1);
+    
+  }
+}
+
+.price {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.productBox {
+  img {
+    object-fit: cover;
+  }
+
+  img:hover{
+    transform: scale(1.1);
+  }
+
+  width: 245px;
+  margin: 2.375rem 0;
+}
+
+.productTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2.375rem;
+}
+
+@media (min-width: 730px) {
+  .productBox {
+    width: 300px;
+    margin-top: 2.375rem;
+  }
+}

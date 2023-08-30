@@ -1,0 +1,52 @@
+.bannerBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.logoTitle {
+  text-align: center;
+}
+
+.productsList {
+  display: flex;
+  overflow-x: scroll;
+  gap: 25px;
+}
+
+
+
+@media (min-width: 700px) {
+  .logoTitle {
+    text-align: left;
+  }
+
+  .bannerBox {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  .titleBox {
+    margin-left: 3.75rem;
+
+    button {
+      margin-top: 5.875rem;
+    }
+  }
+  .productsList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-x: inherit;
+    gap: 20px;
+  }
+}
