@@ -25,13 +25,13 @@ export const RegisterPage = () => {
     <DefaultTemplate>
       <div className="container">
         <div className={styles.register}>
-          <div>
+          <div className={styles.image}>
             <img src={Register} alt="Register image" />
           </div>
-          <div>
+          <div className={styles.container}>
             <form
+              className={styles.form}
               onSubmit={handleSubmit(submitRegister)}
-              className="register-form"
             >
               <div className={styles.arrow}>
                 <AiOutlineArrowLeft />
