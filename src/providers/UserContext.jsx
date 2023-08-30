@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
       setUser(true);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       toast.success("Login realizado com sucesso!");
-      navigate("/product");
+      navigate("/homepage");
     } catch {
       toast.error("Não foi possível realizar o login");
     }
