@@ -8,15 +8,15 @@ export const ProductsProvider = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [cartList, setCartList] = [];
 
-    const addCartProduct = (newCartProduct) => {
-      if (!cartList.some((cartItem) => cartItem.id == newCartProduct.id)) {
-        setCartList(newCartProduct);
-        toast.success("Item adicionado ao carrinho com sucesso");
-      } else {
-        toast.error("Item já adicionado ao carrinho");
-      }
-    };
- 
+  const addCartProduct = (newCartProduct) => {
+    if (!cartList.some((cartItem) => cartItem.id == newCartProduct.id)) {
+      setCartList(newCartProduct);
+      toast.success("Item adicionado ao carrinho com sucesso");
+    } else {
+      toast.error("Item já adicionado ao carrinho");
+    }
+  };
+
   console.log(cartList);
 
   return (
