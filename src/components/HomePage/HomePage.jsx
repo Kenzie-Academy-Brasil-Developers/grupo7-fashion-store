@@ -2,12 +2,12 @@ import FotoBanner from "../../assets/FotoBanner.png";
 import styles from "./styles.module.scss";
 
 import { Footer } from "../Footer";
-import { ProductCard } from "../ProductCard/ProductCard";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../api/axios";
 import { Link, Navigate } from "react-router-dom";
 import { ProductsContext } from "../../providers/ProductsContext";
 import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
+import { ProductCard } from "../ProductPage/ProductCard";
 
 export const HomePage = () => {
   const { products, setProducts } = useContext(ProductsContext);
@@ -23,7 +23,7 @@ export const HomePage = () => {
     };
     getAllProducts();
   }, []);
-  
+
   console.log(products);
   return (
     <>
