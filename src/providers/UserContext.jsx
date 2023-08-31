@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { api } from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -8,10 +8,27 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("@TOKEN");
+    const id = localStorage.getItem("@id");
+
+    const autoLogin = async () => {
+      try {
+        await api.get(`/users/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(true);
+      } catch (error) {}
+    };
+    autoLogin()
+  }, []);
 
   const userLogout = () => {
-    setUser(false);
+    setUser(null);
     navigate("/");
     localStorage.removeItem("@TOKEN");
     toast.warning("Deslogando...");
@@ -20,8 +37,10 @@ export const UserProvider = ({ children }) => {
   const submitLogin = async (formData) => {
     try {
       const response = await api.post("/login", formData);
+      console.log(response);
       setUser(true);
       localStorage.setItem("@TOKEN", response.data.accessToken);
+      localStorage.setItem("@id", response.data.user.id);
       toast.success("Login realizado com sucesso!");
       navigate("/admin");
     } catch {
@@ -40,7 +59,9 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ submitRegister, submitLogin, userLogout, user }}>
+    <UserContext.Provider
+      value={{ submitRegister, submitLogin, userLogout, user }}
+    >
       {children}
     </UserContext.Provider>
   );
