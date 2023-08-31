@@ -1,5 +1,13 @@
-export const SecondaryProducts = ({ product }) => {
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { ProductsContext } from "../../providers/ProductsContext"
 
+export const SecondaryProducts = ({ product }) => {
+    const { addCartProduct } = useContext(ProductsContext)
+    const navigate = useNavigate()
+    const naviProducts = () => {
+        navigate(`/product/${product.id}`)
+    }
     return (
         <>
             <li>
@@ -7,8 +15,8 @@ export const SecondaryProducts = ({ product }) => {
                 <h3>{product.name}</h3>
                 <h4>R$ {product.price}</h4>
                 <div>
-                    <button>Adicionar</button>
-                    <button>SAIBA MAIS</button>
+                    <button onClick={() => addCartProduct(product)}>Adicionar</button>
+                    <button onClick={naviProducts}>SAIBA MAIS</button>
                 </div>
             </li>
         </>
