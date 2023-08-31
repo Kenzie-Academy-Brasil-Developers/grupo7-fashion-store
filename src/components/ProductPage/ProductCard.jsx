@@ -2,11 +2,10 @@ import { MdAddShoppingCart } from "react-icons/md";
 import styles from "./styles.module.scss";
 import { useContext } from "react";
 import { ProductsContext } from "../../providers/ProductsContext";
+import { Link } from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
   const { addCartProduct } = useContext(ProductsContext);
- 
- 
 
   return (
     <li className={styles.productItem}>
@@ -29,7 +28,7 @@ export const ProductCard = ({ product }) => {
         >
           <MdAddShoppingCart size={30} />
         </button>
-        <button className={styles.buttonMore}>SAIBA MAIS</button>
+        <Link to={`/product/${product.id}`} className={styles.buttonMore}>Saiba mais</Link>
       </div>
     </li>
   );

@@ -1,30 +1,33 @@
 import FotoBanner from "../../assets/FotoBanner.png";
 import styles from "./styles.module.scss";
-
 import { Footer } from "../Footer";
-import { ProductCard } from "../ProductCard/ProductCard";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../api/axios";
 import { Link, Navigate } from "react-router-dom";
 import { ProductsContext } from "../../providers/ProductsContext";
 import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
+import { ProductCard } from "../ProductPage/ProductCard";
 
 export const HomePage = () => {
-  const { products, setProducts } = useContext(ProductsContext);
 
-  useEffect(() => {
-    const getAllProducts = async () => {
-      try {
-        const { data } = await api.get("/products");
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAllProducts();
-  }, []);
-  
-  console.log(products);
+  const { products, setProducts, addCartProduct, cartList, setCartList } = useContext(ProductsContext);
+
+    useEffect(() => {
+      const getAllProducts = async () => {
+        try {
+          const { data } = await api.get("/products");
+          setProducts(data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getAllProducts();
+    }, []);
+    
+    useEffect(() => {
+      localStorage.setItem("@cartListItems", JSON.stringify(cartList));
+    }, [cartList]);
+    
   return (
     <>
       <HeaderHomePage />
@@ -45,12 +48,11 @@ export const HomePage = () => {
           <h2 className="title two">PRODUTOS EM DESTAQUE</h2>
           <ul className={styles.productsList}>
             {products.map((product) => (
-              <ProductCard key={crypto.randomUUID()} product={product} />
+              <ProductCard addCartProduct={addCartProduct} key={crypto.randomUUID()} product={product} />
             ))}
           </ul>
         </div>
       </section>
-
       <Footer />
     </>
   );
