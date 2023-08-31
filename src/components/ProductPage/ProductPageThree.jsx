@@ -8,7 +8,7 @@ import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 
 export const ProductPageThree = () => {
 
-    const { products, setProducts } = useContext(ProductsContext);
+    const { products, setProducts, cartList } = useContext(ProductsContext);
 
     useEffect(() => {
         const getAllProducts = async () => {
@@ -21,7 +21,9 @@ export const ProductPageThree = () => {
         getAllProducts();
       }, []);
 
-
+      useEffect(() => {
+        localStorage.setItem("@cartListItems", JSON.stringify(cartList));
+      }, [cartList]);  
 
     return (
         <>

@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { ProductsContext } from "../../providers/ProductsContext";
+
 export const MainProduct = ({ product }) => {
+
+    const { addCartProduct} = useContext(ProductsContext)
 
     return (
         <>      
@@ -15,6 +20,9 @@ export const MainProduct = ({ product }) => {
                     <p>{product.description}</p>
                 </div>
             </main>
+            <button onClick={() => addCartProduct(product)}>
+                Adicionar ao carrinho
+            </button>
         </>
     )
 }
