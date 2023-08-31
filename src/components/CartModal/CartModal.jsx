@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { ProductsContext } from "../../providers/ProductsContext";
 import styles from "./styles.module.scss";
 import { MdClose } from "react-icons/md";
+import { CartItemCard } from "../CartItemCard/CartItemCard";
 
 export const CartModal = () => {
-  const { setIsVisible, products, cartList } = useContext(ProductsContext);
 
+  const { setIsVisible, cartList, removeCartProduct, total } = useContext(ProductsContext);
+  
   return (
     <div role="dialog" className={styles.dialog}>
       <div className={styles.modalBox}>
@@ -21,18 +23,31 @@ export const CartModal = () => {
         </div>
         <div className={styles.cartItems}>
           {cartList == 0 ? (
-            <p className={styles.noItem}>Nenhum item no carrinho</p>
+            <div className={styles.noItem}>
+              <p className={`title`}>Nenhum item no carrinho</p>
+            </div>
           ) : (
-            <ul>
+            <ul className={styles.cartList}>
               {cartList.map((product) => (
                 <CartItemCard
                   key={crypto.randomUUID()}
+                  removeCartProduct={removeCartProduct}
                   product={product}
-                 
                 />
               ))}
             </ul>
           )}
+        </div>
+        <div className={styles.totalBox}>
+          <div className={styles.totalTitle}>
+            <span className="paragraphs">Total</span>
+            <span className="paragraphs sm-price">
+              {total.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
+          </div>
         </div>
       </div>
     </div>
