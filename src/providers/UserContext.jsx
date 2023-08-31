@@ -9,6 +9,7 @@ export const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
@@ -16,13 +17,18 @@ export const UserProvider = ({ children }) => {
 
     const autoLogin = async () => {
       try {
+        setLoading(true);
         await api.get(`/users/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setUser(true);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
     autoLogin();
   }, []);
@@ -32,13 +38,13 @@ export const UserProvider = ({ children }) => {
     navigate("/");
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("Name");
+    localStorage.removeItem("@id");
     toast.warning("Deslogando...");
   };
 
   const submitLogin = async (formData) => {
     try {
       const response = await api.post("/login", formData);
-
       setUser(true);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
@@ -62,7 +68,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ submitRegister, submitLogin, userLogout, user }}
+      value={{ submitRegister, submitLogin, userLogout, user, loading }}
     >
       {children}
     </UserContext.Provider>
