@@ -10,13 +10,20 @@ export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(false);
 
+  const userLogout = () => {
+    setUser(true);
+    navigate("/");
+    localStorage.removeItem("@TOKEN");
+    toast.warning("Deslogando...");
+  };
+
   const submitLogin = async (formData) => {
     try {
       const response = await api.post("/login", formData);
       setUser(true);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       toast.success("Login realizado com sucesso!");
-      navigate("/product");
+      navigate("/admin");
     } catch {
       toast.error("Não foi possível realizar o login");
     }
@@ -33,7 +40,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ submitRegister, submitLogin }}>
+    <UserContext.Provider value={{ submitRegister, submitLogin, userLogout }}>
       {children}
     </UserContext.Provider>
   );

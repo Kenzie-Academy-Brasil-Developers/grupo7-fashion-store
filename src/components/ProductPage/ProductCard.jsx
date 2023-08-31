@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 
 export const ProductCard = ({ product }) => {
   const { addCartProduct } = useContext(ProductsContext);
- 
- 
 
   return (
     <li className={styles.productItem}>
