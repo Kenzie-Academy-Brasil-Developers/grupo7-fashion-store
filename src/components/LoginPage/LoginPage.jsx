@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
 import logo from "../../assets/login.png";
 import styles from "./style.module.scss";
+import { InputPassword } from "../InputPassword/InputPassword";
 
 export const LoginPage = () => {
   const {
@@ -36,8 +37,7 @@ export const LoginPage = () => {
                 {...register("email")}
                 error={errors.email}
               />
-              <Input
-                type="password"
+              <InputPassword
                 placeholder="SENHA"
                 {...register("password")}
                 error={errors.password}

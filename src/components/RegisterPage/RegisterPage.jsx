@@ -9,6 +9,7 @@ import { DefaultTemplate } from "../DefaultTemplate";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Register from "../../assets/Register.png";
 import styles from "./style.module.scss";
+import { InputPassword } from "../InputPassword/InputPassword";
 
 export const RegisterPage = () => {
   const {
@@ -58,18 +59,16 @@ export const RegisterPage = () => {
                 {...register("email")}
                 error={errors.email}
               ></Input>
-              <Input
-                type="password"
+              <InputPassword
                 placeholder="SENHA"
                 {...register("password")}
                 error={errors.password}
-              ></Input>
-              <Input
-                type="password"
-                placeholder="CONFIRMAR SENHA"
+              />
+              <InputPassword
+                placeholder="SENHA"
                 {...register("confirmPassword")}
                 error={errors.confirmPassword}
-              ></Input>
+              />
               <div className={styles.btn}>
                 <button type="submit" className="btn__black">
                   Cadastrar-se
