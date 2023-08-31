@@ -6,7 +6,8 @@ import { UserContext } from "../../providers/UserContext";
 import styles from "./style.module.scss";
 
 export const AdminPage = () => {
-  const { userLogout, user } = useContext(UserContext);
+  const { userLogout } = useContext(UserContext);
+  const getNameFromLS = localStorage.getItem("Name");
 
   return (
     <>
@@ -31,7 +32,9 @@ export const AdminPage = () => {
           </div>
           <div className={styles.tests}>
             <h2 className="title two">PAINEL DO ADMINISTRADOR</h2>
-            <p className="another__paragraph">Seja bem vindo, administrador</p>
+            <p className="another__paragraph">
+              Seja bem vindo, {getNameFromLS}
+            </p>
           </div>
         </div>
       </div>

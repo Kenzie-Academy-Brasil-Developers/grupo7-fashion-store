@@ -14,7 +14,6 @@ export const CrudProductProvider = ({ children }) => {
       try {
         const { data } = await api.get("/products");
         setCrudProductList(data);
-        console.log(data)
       } catch (error) {
         console.log(error);
       }
