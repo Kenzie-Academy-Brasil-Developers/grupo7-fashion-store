@@ -49,7 +49,7 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
       localStorage.setItem("Name", response.data.user.name);
-      toast.success("Login realizado com sucesso!");
+      toast.success(`Olá , ${response.data.user.name}`);
       navigate("/admin");
     } catch {
       toast.error("Não foi possível realizar o login");
