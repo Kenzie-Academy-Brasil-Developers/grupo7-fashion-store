@@ -24,23 +24,25 @@ export const UserProvider = ({ children }) => {
         setUser(true);
       } catch (error) {}
     };
-    autoLogin()
+    autoLogin();
   }, []);
 
   const userLogout = () => {
     setUser(null);
     navigate("/");
     localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("Name");
     toast.warning("Deslogando...");
   };
 
   const submitLogin = async (formData) => {
     try {
       const response = await api.post("/login", formData);
-      console.log(response);
+
       setUser(true);
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
+      localStorage.setItem("Name", response.data.user.name);
       toast.success("Login realizado com sucesso!");
       navigate("/admin");
     } catch {
