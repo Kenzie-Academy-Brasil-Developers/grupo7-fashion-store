@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { BiLogOutCircle } from "react-icons/bi";
 import { Header } from "../Header";
-import { Footer } from "../Footer";
 import { useContext } from "react";
 import { UserContext } from "../../providers/UserContext";
+import styles from "./style.module.scss";
 
 export const AdminPage = () => {
   const { userLogout } = useContext(UserContext);
@@ -12,23 +12,36 @@ export const AdminPage = () => {
     <>
       <Header />
       <div className="container">
-        <div>
-          <button onClick={() => userLogout()}>
-            <BiLogOutCircle size={23} />
-          </button>
-        </div>
-        <div>
-          <Link to="/admin">Início</Link>
-          <Link to="/handleproducts">Produtos</Link>
-        </div>
-        <div>
-          <h2>PAINEL DO ADMINISTRADOR</h2>
-          <p>Seja bem vindo, administrador</p>
+        <div className={styles.adminComponents}>
+          <div className={styles.flexbox}>
+            <div className={styles.links}>
+              <Link className="title five" to="/admin">
+                INÍCIO
+              </Link>
+              <Link className="title five" to="/handleproducts">
+                PRODUTOS
+              </Link>
+            </div>
+            <div>
+              <button className="btn__black login" onClick={() => userLogout()}>
+                Fazer Logout
+                <BiLogOutCircle size={23} />
+              </button>
+            </div>
+          </div>
+          <div className={styles.tests}>
+            <h2 className="title two">PAINEL DO ADMINISTRADOR</h2>
+            <p className="another__paragraph">Seja bem vindo, administrador</p>
+          </div>
         </div>
       </div>
-      <Footer />
+      <footer className={styles.footer}>
+        <div className="container">
+          <p className="footerText">
+            Todos os direitos reservados - Kenzie Academy Brasil
+          </p>
+        </div>
+      </footer>
     </>
   );
 };
-
-export default AdminPage;
