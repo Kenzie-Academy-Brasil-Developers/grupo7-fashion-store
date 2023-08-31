@@ -6,17 +6,23 @@ import { HomePage } from "../components/HomePage/HomePage";
 import { ProductPage } from "../components/ProductPage/ProductPage";
 import { AdminPage } from "../components/AdminPage/AdminPage";
 import { HandleProducts } from "../components/HandleProducts/HandleProducts";
-import {  ProductsPage } from "../pages/ProductsPage";
+import { ProductsPage } from "../pages/ProductsPage";
+import { PrivateRoutes } from "./PrivateRoutes";
+import { PublicRoutes } from "./PublicRoutes";
 
 export const RounterMain = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<ProductsPage/>}/>
-            <Route path="/product/" element={<ProductPage></ProductPage>}/>
-            <Route path="/admin" element={<AdminPage></AdminPage>}/>
-            <Route path="/handleproducts" element={<HandleProducts></HandleProducts>}/>
-            <Route path="/register" element={<RegisterPage></RegisterPage>}/>
-            <Route path="/login" element={<LoginPage></LoginPage>}/>
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/" element={<ProductsPage />} />
+      <Route path="/product/" element={<ProductPage />} />
+      <Route element={<PrivateRoutes />}>
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/handleproducts" element={<HandleProducts />} />
+      </Route>
+      <Route  element={<PublicRoutes />}>
+        <Route path="/register" element={<RegisterPage></RegisterPage>} />
+        <Route path="/login" element={<LoginPage></LoginPage>} />
+      </Route>
+    </Routes>
+  );
+};
