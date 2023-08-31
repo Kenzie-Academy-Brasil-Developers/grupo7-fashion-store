@@ -6,7 +6,9 @@ export const Input = forwardRef(
     return (
       <div className={styles.inputBox}>
         <input ref={ref} type={type} placeholder={placeholder} {...rest} />
-        {error ? <span>{error.message}</span> : null}
+        {error ? (
+          <span className="footerText error">{error.message}</span>
+        ) : null}
       </div>
     );
   }

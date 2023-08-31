@@ -6,7 +6,7 @@ import { UserContext } from "../../providers/UserContext";
 import styles from "./style.module.scss";
 
 export const AdminPage = () => {
-  const { userLogout } = useContext(UserContext);
+  const { userLogout, user } = useContext(UserContext);
 
   return (
     <>
