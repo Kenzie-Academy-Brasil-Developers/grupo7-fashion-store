@@ -10,7 +10,7 @@ import { ProductsContext } from "../../providers/ProductsContext";
 import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 
 export const HomePage = () => {
-  const { products, setProducts } = useContext(ProductsContext);
+  const { products, setProducts, addCartProduct, cartList } = useContext(ProductsContext);
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -24,7 +24,10 @@ export const HomePage = () => {
     getAllProducts();
   }, []);
   
-  console.log(products);
+  useEffect(() => {
+    localStorage.setItem("@cartListItems", JSON.stringify(cartList));
+  }, [cartList]);
+ 
   return (
     <>
       <HeaderHomePage />
@@ -45,7 +48,7 @@ export const HomePage = () => {
           <h2 className="title two">PRODUTOS EM DESTAQUE</h2>
           <ul className={styles.productsList}>
             {products.map((product) => (
-              <ProductCard key={crypto.randomUUID()} product={product} />
+              <ProductCard addCartProduct={addCartProduct} key={crypto.randomUUID()} product={product} />
             ))}
           </ul>
         </div>

@@ -7,7 +7,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 export const HeaderHomePage = () => {
-  const { setIsVisible } = useContext(ProductsContext);
+  const { setIsVisible, cartList, totalProducts } = useContext(ProductsContext);
   return (
     <header>
       <div className={`container ${styles.flexBox}`}>
@@ -16,8 +16,14 @@ export const HeaderHomePage = () => {
           <Link className={styles.user} to="/login">
             <BiUserCircle size={30} />
           </Link>
-          <button onClick={() => setIsVisible(true)}>
+          <button
+            className={styles.cartButton}
+            onClick={() => setIsVisible(true)}
+          >
             <BsCart3 size={30} />
+            {cartList.length > 0 ? (
+              <span className={styles.productsNumber}>{totalProducts}</span>
+            ) : null}
           </button>
         </div>
       </div>

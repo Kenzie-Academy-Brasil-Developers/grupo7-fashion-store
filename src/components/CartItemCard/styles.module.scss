@@ -1,0 +1,18 @@
+.productList{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+  
+}
+
+.titleBox{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .title{
+        p {
+            margin-top: 10px;
+        }
+    }
+}
