@@ -86,4 +86,9 @@
   font-weight: 700;
   font-size: clamp(0.5625rem, 4vw, 0.75rem);
   color: var(--white);
+
+  &.error {
+    font-size: 0.8125rem;
+    color: #c92a2a;
+  }
 }
