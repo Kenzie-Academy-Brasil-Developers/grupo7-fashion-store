@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { api } from "../../api/axios";
 import { MainProduct } from "./MainProduct";
 import { SecondaryProducts } from "./SecondaryProducts";
+import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 
 export const ProductPageOne = () => {
 
@@ -24,10 +25,7 @@ export const ProductPageOne = () => {
 
     return (
         <>
-            <header>
-                <h2>FASHIONSTORE</h2>
-                <img src="" alt="" />
-            </header>
+            <HeaderHomePage />
             <main>
                 {products.map((product) => (
                     product.id == 1 ? <MainProduct key={product.id} product={product} /> : null
