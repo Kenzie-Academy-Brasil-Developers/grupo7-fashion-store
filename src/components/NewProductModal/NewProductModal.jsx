@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { NewProductSchema } from "./NewProductSchema";
 import { useContext } from "react";
 import { CrudProductContext } from "../../providers/HandleProductContext";
+import styles from "./styles.module.scss";
 
 export const NewProductModal = () => {
   const {
@@ -25,16 +26,17 @@ export const NewProductModal = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <h3>NOVO PRODUTO</h3>
+    <div className={styles.modal}>
+      <div className={styles.subModal}>
+        <div className={styles.container}>
+          <h3 className="title three">NOVO PRODUTO</h3>
           <button
             onClick={() => setCreateNewProductModal(false)}
             title="fechar"
             aria-label="close"
+            className={styles.close}
           >
-            <AiOutlineClose size={17} />
+            <AiOutlineClose size={25} />
           </button>
         </div>
         <form onSubmit={handleSubmit(submitNewProduct)}>
@@ -60,11 +62,14 @@ export const NewProductModal = () => {
             placeholder="DESCRIÇÃO RESUMIDA"
             {...register("image")}
             error={errors.image}
+            className={styles.textArea}
           />
-          <button type="submit">
-            <AiOutlinePlusCircle />
-            NOVO PRODUTO
-          </button>
+          <div className={styles.button}>
+            <button type="submit" className="btn__black">
+              <AiOutlinePlusCircle size={25}/>
+              NOVO PRODUTO
+            </button>
+          </div>
         </form>
       </div>
     </div>
