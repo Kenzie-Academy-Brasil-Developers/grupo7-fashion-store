@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../api/axios";
+import { toast } from "react-toastify";
 
 export const CrudProductContext = createContext({});
 
@@ -31,10 +32,10 @@ export const CrudProductProvider = ({ children }) => {
         },
       });
       setCrudProductList([...crudProductList, data]);
-      alert("Produto adicionado com sucesso");
+      toast.success("O produto foi adicionado com sucesso!");
       setCreateNewProductModal(false);
-    } catch (error) {
-      console.log(error);
+    } catch {
+      toast.error("Não foi possível adicionar o produto");
     }
   };
 
@@ -50,9 +51,9 @@ export const CrudProductProvider = ({ children }) => {
         return product.id !== deletingId;
       });
       setCrudProductList(newCrudProductList);
-      alert("Produto excluído com sucesso");
-    } catch (error) {
-      console.log(error);
+      toast.success("Produto excluído com sucesso!");
+    } catch {
+      toast.error("Não foi possível deletar o produto!");
     }
   };
 
@@ -77,10 +78,10 @@ export const CrudProductProvider = ({ children }) => {
         }
       });
       setCrudProductList(newCrudProductList);
-      alert("produto editado com sucesso!");
+      toast.success("O produto foi atualizado com sucesso!");
       setEditingProduct(null);
-    } catch (error) {
-      console.log(error);
+    } catch {
+      toast.error("Não foi possível editar o produto");
     }
   };
 
