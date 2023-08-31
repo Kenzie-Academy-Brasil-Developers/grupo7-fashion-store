@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(false);
 
   const userLogout = () => {
-    setUser(true);
+    setUser(false);
     navigate("/");
     localStorage.removeItem("@TOKEN");
     toast.warning("Deslogando...");
@@ -40,7 +40,7 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ submitRegister, submitLogin, userLogout }}>
+    <UserContext.Provider value={{ submitRegister, submitLogin, userLogout, user }}>
       {children}
     </UserContext.Provider>
   );

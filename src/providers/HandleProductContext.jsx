@@ -9,8 +9,6 @@ export const CrudProductProvider = ({ children }) => {
   const [createNewProductModal, setCreateNewProductModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
 
-  console.log(editingProduct);
-
   useEffect(() => {
     const getProductsRequest = async () => {
       try {

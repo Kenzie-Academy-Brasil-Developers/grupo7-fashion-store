@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { DefaultTemplate } from "../DefaultTemplate";
 import { BiLogOutCircle } from "react-icons/bi";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
