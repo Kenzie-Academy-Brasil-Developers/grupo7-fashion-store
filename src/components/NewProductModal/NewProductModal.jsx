@@ -26,20 +26,23 @@ export const NewProductModal = () => {
   };
 
   return (
-    <div className={styles.modal}>
-      <div className={styles.subModal}>
-        <div className={styles.container}>
-          <h3 className="title three">NOVO PRODUTO</h3>
+    <div className={styles.modalOverlay} role="dialog">
+      <div className={styles.modalBox}>
+        <div className={styles.ModalHeaders}>
+          <h3 className="title six">NOVO PRODUTO</h3>
           <button
             onClick={() => setCreateNewProductModal(false)}
             title="fechar"
             aria-label="close"
             className={styles.close}
           >
-            <AiOutlineClose size={25} />
+            <AiOutlineClose size={17} />
           </button>
         </div>
-        <form onSubmit={handleSubmit(submitNewProduct)}>
+        <form
+          onSubmit={handleSubmit(submitNewProduct)}
+          className={styles.formModal}
+        >
           <Input
             type="text"
             placeholder="NOME"
@@ -62,11 +65,10 @@ export const NewProductModal = () => {
             placeholder="DESCRIÇÃO RESUMIDA"
             {...register("image")}
             error={errors.image}
-            className={styles.textArea}
           />
-          <div className={styles.button}>
+          <div className={styles.btn}>
             <button type="submit" className="btn__black">
-              <AiOutlinePlusCircle size={25}/>
+              <AiOutlinePlusCircle size={25} />
               NOVO PRODUTO
             </button>
           </div>

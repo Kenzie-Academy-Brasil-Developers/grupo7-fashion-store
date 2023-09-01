@@ -4,7 +4,7 @@ import { Input } from "../Input/input";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "./formSchemaLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../providers/UserContext";
 import logo from "../../assets/login.png";
 import styles from "./style.module.scss";
