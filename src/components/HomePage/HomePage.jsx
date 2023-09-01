@@ -8,25 +8,25 @@ import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 import { ProductCard } from "../ProductPage/ProductCard";
 
 export const HomePage = () => {
+  const { products, setProducts, addCartProduct, cartList, setCartList } =
+    useContext(ProductsContext);
 
-  const { products, setProducts, addCartProduct, cartList, setCartList } = useContext(ProductsContext);
+  useEffect(() => {
+    const getAllProducts = async () => {
+      try {
+        const { data } = await api.get("/products");
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllProducts();
+  }, []);
 
-    useEffect(() => {
-      const getAllProducts = async () => {
-        try {
-          const { data } = await api.get("/products");
-          setProducts(data);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      getAllProducts();
-    }, []);
-    
-    useEffect(() => {
-      localStorage.setItem("@cartListItems", JSON.stringify(cartList));
-    }, [cartList]);
-    
+  useEffect(() => {
+    localStorage.setItem("@cartListItems", JSON.stringify(cartList));
+  }, [cartList]);
+
   return (
     <>
       <HeaderHomePage />
@@ -47,7 +47,11 @@ export const HomePage = () => {
           <h2 className="title two">PRODUTOS EM DESTAQUE</h2>
           <ul className={styles.productsList}>
             {products.map((product) => (
-              <ProductCard addCartProduct={addCartProduct} key={crypto.randomUUID()} product={product} />
+              <ProductCard
+                addCartProduct={addCartProduct}
+                key={crypto.randomUUID()}
+                product={product}
+              />
             ))}
           </ul>
         </div>

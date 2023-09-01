@@ -6,8 +6,8 @@ export const ProductsContext = createContext({});
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
-  const cart = localStorage.getItem("@cartListItems");
-  const [cartList, setCartList] = useState(JSON.parse(cart) || []);
+  const cart = JSON.parse(localStorage.getItem("@cartListItems"));
+  const [cartList, setCartList] = useState(cart ? cart : []);
   const [isVisibleSingleProduct, setIsVisibleSingleProduct] = useState(false);
 
   const addCartProduct = (newCartProduct) => {
