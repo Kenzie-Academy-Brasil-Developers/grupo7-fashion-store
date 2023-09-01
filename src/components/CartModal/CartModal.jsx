@@ -5,9 +5,9 @@ import { MdClose } from "react-icons/md";
 import { CartItemCard } from "../CartItemCard/CartItemCard";
 
 export const CartModal = () => {
+  const { setIsVisible, cartList, removeCartProduct, total } =
+    useContext(ProductsContext);
 
-  const { setIsVisible, cartList, removeCartProduct, total } = useContext(ProductsContext);
-  
   return (
     <div role="dialog" className={styles.dialog}>
       <div className={styles.modalBox}>
@@ -22,7 +22,7 @@ export const CartModal = () => {
           </button>
         </div>
         <div className={styles.cartItems}>
-          {cartList == 0 ? (
+          {cartList === 0 ? (
             <div className={styles.noItem}>
               <p className={`title`}>Nenhum item no carrinho</p>
             </div>
