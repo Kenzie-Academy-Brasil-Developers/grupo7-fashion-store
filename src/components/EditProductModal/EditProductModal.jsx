@@ -5,6 +5,7 @@ import { BiPencil } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { CrudProductContext } from "../../providers/HandleProductContext";
+import styles from "./style.module.scss";
 
 export const EditProductModal = () => {
   const { editingProduct, setEditingProduct, updateProductRequest } =
@@ -24,10 +25,10 @@ export const EditProductModal = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <h3>EDITAR PRODUTO</h3>
+    <div className={styles.modalOverlay} role="dialog">
+      <div className={styles.modalBox}>
+        <div className={styles.ModalHeaders}>
+          <h3 className="title six">EDITAR PRODUTO</h3>
           <button
             onClick={() => setEditingProduct(null)}
             title="fechar"
@@ -36,7 +37,10 @@ export const EditProductModal = () => {
             <AiOutlineClose size={17} />
           </button>
         </div>
-        <form onSubmit={handleSubmit(submitEditProduct)}>
+        <form
+          onSubmit={handleSubmit(submitEditProduct)}
+          className={styles.formModal}
+        >
           <Input type="text" placeholder="NOME" {...register("name")} />
           <Input
             type="number"
@@ -49,7 +53,7 @@ export const EditProductModal = () => {
             {...register("description")}
           />
           <TextArea placeholder="DESCRIÇÃO RESUMIDA" {...register("image")} />
-          <button type="submit">
+          <button type="submit" className="btn__black">
             <BiPencil />
             EDITAR PRODUTO
           </button>

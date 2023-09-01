@@ -65,7 +65,7 @@ export const RegisterPage = () => {
                 error={errors.password}
               />
               <InputPassword
-                placeholder="SENHA"
+                placeholder="CONFIRMAR SENHA"
                 {...register("confirmPassword")}
                 error={errors.confirmPassword}
               />

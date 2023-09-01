@@ -62,11 +62,10 @@ export const NewProductModal = () => {
             placeholder="DESCRIÇÃO RESUMIDA"
             {...register("image")}
             error={errors.image}
-            className={styles.textArea}
           />
           <div className={styles.button}>
             <button type="submit" className="btn__black">
-              <AiOutlinePlusCircle size={25}/>
+              <AiOutlinePlusCircle size={25} />
               NOVO PRODUTO
             </button>
           </div>
