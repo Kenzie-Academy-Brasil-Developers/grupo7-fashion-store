@@ -3,7 +3,6 @@ import styles from "./styles.module.scss";
 import { Footer } from "../Footer";
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../api/axios";
-import { Link, Navigate } from "react-router-dom";
 import { ProductsContext } from "../../providers/ProductsContext";
 import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 import { ProductCard } from "../ProductPage/ProductCard";

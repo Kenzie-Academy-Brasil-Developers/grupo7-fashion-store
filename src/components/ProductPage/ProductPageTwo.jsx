@@ -7,10 +7,11 @@ import { SecondaryProducts } from "./SecondaryProducts";
 import { HeaderHomePage } from "../HeaderHomePage/HeaderHomePage";
 import { Footer } from "../Footer";
 import styles from "./styles.module.scss";
+import { CartModal } from "../CartModal/CartModal";
 
 export const ProductPageTwo = () => {
   const { products, setProducts, cartList } = useContext(ProductsContext);
-
+  const { isVisible } = useContext(ProductsContext);
   useEffect(() => {
     const getAllProducts = async () => {
       try {
@@ -28,6 +29,7 @@ export const ProductPageTwo = () => {
   return (
     <>
       <HeaderHomePage />
+      {isVisible ? <CartModal /> : null}
       <main className={` container`}>
         {products.map((product) =>
           product.id == 2 ? (
