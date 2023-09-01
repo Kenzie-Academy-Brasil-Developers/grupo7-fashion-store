@@ -8,24 +8,23 @@
     background-color: var(--black);
   }
 
-  .cartButton:hover{
+  .cartButton:hover {
     transform: scale(1.1);
   }
   svg {
     color: var(--white);
     background-color: var(--black);
   }
-  .buttonMore {
-    font-family: var(--font-secondary);
-    font-weight: 500;
-    font-size: 0.875rem;
-    margin-left: 1.5625rem;
-  }
+}
+.buttonMore {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-left: 1.5625rem;
+}
 
-  .buttonMore:hover {
-    transform: scale(1.1);
-    
-  }
+.buttonMore:hover {
+  transform: scale(1.1);
 }
 
 .price {
@@ -39,7 +38,7 @@
     object-fit: cover;
   }
 
-  img:hover{
+  img:hover {
     transform: scale(1.1);
   }
 
@@ -54,9 +53,97 @@
   margin-top: 2.375rem;
 }
 
+.titleHomeBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainProduct {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.mainImg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mainText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  justify-content: center;
+  gap: 1.5rem;
+
+  p {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+.productList {
+  display: flex;
+
+  overflow-x: scroll;
+  gap: 25px;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+}
+
+.bannerBox {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 730px) {
   .productBox {
     width: 300px;
     margin-top: 2.375rem;
   }
+
+  .bannerBox {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mainProduct {
+  
+    margin: 40px 0;
+    width: 100%;
+    img {
+      width: 80%;
+    }
+  }
+  
+  .mainImg {
+    width: 70%;
+
+  }
+
+  .mainText {
+    width: 50%;
+
+  
+    p {
+      width: 50%;
+    }
+    button {
+      width: 35%;
+    }
+  }
+  
 }
