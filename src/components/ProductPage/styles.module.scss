@@ -17,10 +17,7 @@
   }
 }
 .buttonMore {
-  font-family: var(--font-secondary);
-  font-weight: 500;
-  font-size: 0.875rem;
-  margin-left: 1.5625rem;
+  margin-left: 10px;
 }
 
 .buttonMore:hover {
@@ -51,6 +48,7 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 2.375rem;
+  margin-bottom: 2.375rem;
 }
 
 .titleHomeBox {

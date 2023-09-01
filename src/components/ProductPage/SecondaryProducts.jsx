@@ -16,24 +16,32 @@ export const SecondaryProducts = ({ product }) => {
         <div className={styles.productBox}>
           <img src={product.image} alt={product.name} />
           <div className={styles.productTitle}>
-            <h3 className="title four">{product.name}</h3>
-            <h4 className={styles.price}>
-              {" "}
-              {product.price.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </h4>
+            
+              <h3 className="title four">{product.name}</h3>
+              <h4 className={styles.price}>
+                {" "}
+                {product.price.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </h4>
+         </div>
             <div className={styles.cartBox}>
-              <button   className={styles.cartButton} onClick={() => addCartProduct(product)}>
+              <button
+                className={styles.cartButton}
+                onClick={() => addCartProduct(product)}
+              >
                 <MdAddShoppingCart size={30} />
               </button>
-              <button className={styles.buttonMore} onClick={naviProducts}>
+              <button
+                className={`paragraphs ${styles.buttonMore}`}
+                onClick={naviProducts}
+              >
                 SAIBA MAIS
               </button>
             </div>
           </div>
-        </div>
+        
       </li>
     </>
   );
