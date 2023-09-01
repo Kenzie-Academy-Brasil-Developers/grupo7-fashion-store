@@ -8,7 +8,17 @@
   flex-direction: column;
 }
 
+.buttonMore {
+  font-family: var(--font-secondary);
+  color: var(--black);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-left: 1.5625rem;
+}
 
+.buttonMore:hover {
+  transform: scale(1.1);
+}
 
 .logoTitle {
   text-align: center;
@@ -19,8 +29,6 @@
   overflow-x: scroll;
   gap: 25px;
 }
-
-
 
 @media (min-width: 700px) {
   .logoTitle {

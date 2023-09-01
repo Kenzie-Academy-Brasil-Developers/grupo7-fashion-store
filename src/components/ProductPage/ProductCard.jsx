@@ -28,7 +28,7 @@ export const ProductCard = ({ product }) => {
         >
           <MdAddShoppingCart size={30} />
         </button>
-        <Link to={`/product/${product.id}`} className={styles.buttonMore}>Saiba mais</Link>
+        <Link to={`/product/${product.id}`} className={styles.buttonMore}>SAIBA MAIS </Link>
       </div>
     </li>
   );

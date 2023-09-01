@@ -4,11 +4,11 @@ import { toast } from "react-toastify";
 export const ProductsContext = createContext({});
 
 export const ProductsProvider = ({ children }) => {
-
   const [products, setProducts] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
-  const cart = localStorage.getItem("@cartListItems")
+  const cart = localStorage.getItem("@cartListItems");
   const [cartList, setCartList] = useState(JSON.parse(cart) || []);
+  const [isVisibleSingleProduct, setIsVisibleSingleProduct] = useState(false);
 
   const addCartProduct = (newCartProduct) => {
     const filterProducts = cartList.filter(
@@ -17,7 +17,7 @@ export const ProductsProvider = ({ children }) => {
     if (filterProducts.length == 0) {
       setCartList([...cartList, newCartProduct]);
       toast.success("Item adicionado ao carrinho");
-      console.log(cartList)
+      console.log(cartList);
     } else {
       toast.error("Item já adicionado ao carrinho");
     }
@@ -51,6 +51,8 @@ export const ProductsProvider = ({ children }) => {
         removeCartProduct,
         total,
         totalProducts,
+        isVisibleSingleProduct,
+        setIsVisibleSingleProduct,
       }}
     >
       {children}
