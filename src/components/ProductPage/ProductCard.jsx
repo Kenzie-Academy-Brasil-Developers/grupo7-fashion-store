@@ -14,7 +14,7 @@ export const ProductCard = ({ product }) => {
         <div className={styles.productTitle}>
           <h3 className="title four">{product.name}</h3>
           <p className={styles.price}>
-            {product.price.toLocaleString("pt-BR", {
+            {parseFloat(product.price).toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
@@ -28,7 +28,12 @@ export const ProductCard = ({ product }) => {
         >
           <MdAddShoppingCart size={30} />
         </button>
-      <Link to={`/product/${product.id}`} className={`paragraphs ${styles.buttonMore}`}>SAIBA MAIS </Link>
+        <Link
+          to={`/product/${product.id}`}
+          className={`paragraphs ${styles.buttonMore}`}
+        >
+          SAIBA MAIS{" "}
+        </Link>
       </div>
     </li>
   );
