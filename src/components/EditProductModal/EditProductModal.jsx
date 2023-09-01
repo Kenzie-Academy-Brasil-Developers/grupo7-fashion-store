@@ -53,10 +53,12 @@ export const EditProductModal = () => {
             {...register("description")}
           />
           <TextArea placeholder="DESCRIÇÃO RESUMIDA" {...register("image")} />
-          <button type="submit" className="btn__black">
-            <BiPencil />
-            EDITAR PRODUTO
-          </button>
+          <div className={styles.btn}>
+            <button type="submit" className="btn__black">
+              <BiPencil />
+              EDITAR PRODUTO
+            </button>
+          </div>
         </form>
       </div>
     </div>
