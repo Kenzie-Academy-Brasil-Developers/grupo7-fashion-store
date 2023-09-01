@@ -38,13 +38,13 @@ export const HandleProducts = () => {
                 className="btn__black"
                 onClick={() => setCreateNewProductModal(true)}
               >
-                <AiOutlinePlusCircle size={25}/>
+                <AiOutlinePlusCircle size={25} />
                 Novo produto
               </button>
             </div>
           </div>
           {createNewProductModal ? (
-            <div className={styles.modal}>
+            <div>
               {" "}
               <NewProductModal />{" "}
             </div>
