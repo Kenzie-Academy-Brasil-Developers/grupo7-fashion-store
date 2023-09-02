@@ -4,6 +4,12 @@
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 385px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
   .links {
     display: flex;
     flex-direction: row;
