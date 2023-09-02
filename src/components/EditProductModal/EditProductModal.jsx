@@ -50,9 +50,12 @@ export const EditProductModal = () => {
           <Input
             type="text"
             placeholder="IMAGEM (URL)"
+            {...register("image")}
+          />
+          <TextArea
+            placeholder="DESCRIÇÃO RESUMIDA"
             {...register("description")}
           />
-          <TextArea placeholder="DESCRIÇÃO RESUMIDA" {...register("image")} />
           <div className={styles.btn}>
             <button type="submit" className="btn__black">
               <BiPencil />

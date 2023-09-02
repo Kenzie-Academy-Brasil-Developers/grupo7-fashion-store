@@ -58,13 +58,13 @@ export const NewProductModal = () => {
           <Input
             type="text"
             placeholder="IMAGEM (URL)"
-            {...register("description")}
-            error={errors.description}
+            {...register("image")}
+            error={errors.image}
           />
           <TextArea
             placeholder="DESCRIÇÃO RESUMIDA"
-            {...register("image")}
-            error={errors.image}
+            {...register("description")}
+            error={errors.description}
           />
           <div className={styles.btn}>
             <button type="submit" className="btn__black">
