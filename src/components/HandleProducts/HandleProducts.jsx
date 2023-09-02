@@ -25,6 +25,9 @@ export const HandleProducts = () => {
                 <Link to="/handleproducts" className="title five">
                   PRODUTOS
                 </Link>
+                <Link to="/" className="title five">
+                  HOMEPAGE
+                </Link>
               </div>
               <div>
                 <h1 className="title one">Produtos</h1>

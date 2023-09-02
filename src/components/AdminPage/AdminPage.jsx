@@ -22,6 +22,9 @@ export const AdminPage = () => {
               <Link className="title five" to="/handleproducts">
                 PRODUTOS
               </Link>
+              <Link to="/" className="title five">
+                HOMEPAGE
+              </Link>
             </div>
             <div>
               <button className="btn__black login" onClick={() => userLogout()}>
